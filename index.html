@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sugound AI</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>✦ Sugound AI</h1>
+      <p class="hint">Free Demo Mode can be enabled on Render without OpenAI credits.</p>
+      <p>Chat · Images · Media · Censor</p>
+    </div>
+    <span id="health" class="pill">Checking…</span>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="chat">✦ Chat</button>
+    <button class="tab" data-tab="images">▧ Images</button>
+    <button class="tab" data-tab="media">✂ Media</button>
+    <button class="tab" data-tab="censor">◉ Censor</button>
+  </nav>
+
+  <main>
+    <section id="chat" class="panel active">
+      <h2>AI Assistant</h2>
+      <div id="chatLog" class="chatlog">
+        <div class="bubble">Hi! Tell me what you want to create or edit.</div>
+      </div>
+      <form id="chatForm">
+        <textarea id="chatInput" placeholder="Make an 80s-style music video..." required></textarea>
+        <button class="primary">Send</button>
+      </form>
+    </section>
+
+    <section id="images" class="panel">
+      <h2>Image generation</h2>
+      <textarea id="imagePrompt" placeholder="A cinematic 1980s neon city at sunset..."></textarea>
+      <div class="row">
+        <label>Size
+          <select id="imageSize">
+            <option value="1024x1024">Square</option>
+            <option value="1536x1024">Landscape</option>
+            <option value="1024x1536">Portrait</option>
+          </select>
+        </label>
+      </div>
+      <button id="generateImage" class="primary">Generate image</button>
+      <div id="imageOutput" class="preview">Generated image appears here.</div>
+    </section>
+
+    <section id="media" class="panel">
+      <h2>Media editor</h2>
+      <input id="mediaInput" type="file" accept="image/*,video/*,audio/*">
+      <div id="mediaPreview" class="preview">Upload an image, video, or audio file.</div>
+      <div class="row">
+        <label>Filter
+          <select id="filter">
+            <option value="none">Original</option>
+            <option value="grayscale(1)">Grayscale</option>
+            <option value="sepia(1)">Sepia</option>
+            <option value="contrast(1.25)">High contrast</option>
+            <option value="brightness(1.15)">Bright</option>
+          </select>
+        </label>
+        <button id="applyFilter">Apply preview filter</button>
+      </div>
+      <p class="hint">The browser previews media locally. Full video/audio export can be added with FFmpeg or a dedicated media worker.</p>
+    </section>
+
+    <section id="censor" class="panel">
+      <h2>Slur censor</h2>
+      <p class="hint">Confirmed slur detections are replaced with exactly <strong>You're grounded.</strong> Ordinary swear words are not intentionally censored.</p>
+      <textarea id="censorInput" placeholder="Paste subtitles or a transcript here..."></textarea>
+      <button id="censorButton" class="primary">Scan and censor</button>
+      <textarea id="censorOutput" readonly placeholder="Censored text will appear here..."></textarea>
+      <div id="detections" class="hint"></div>
+    </section>
+  </main>
+
+  <footer>
+    Keep <code>OPENAI_API_KEY</code> on the server. Never commit your real API key to GitHub.
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
