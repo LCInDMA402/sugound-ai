@@ -10,7 +10,7 @@
   <header class="topbar">
     <div>
       <h1>✦ Sugound AI</h1>
-      <p class="hint">Free Demo Mode can be enabled on Render without OpenAI credits.</p>
+      <p class="hint">Welcome to Sugound AI</p>
       <p>Chat · Images · Media · Censor</p>
     </div>
     <span id="health" class="pill">Checking…</span>
@@ -30,14 +30,14 @@
         <div class="bubble">Hi! Tell me what you want to create or edit.</div>
       </div>
       <form id="chatForm">
-        <textarea id="chatInput" placeholder="Make an 80s-style music video..." required></textarea>
+        <textarea id="chatInput" placeholder="Enter a message" required></textarea>
         <button class="primary">Send</button>
       </form>
     </section>
 
     <section id="images" class="panel">
       <h2>Image generation</h2>
-      <textarea id="imagePrompt" placeholder="A cinematic 1980s neon city at sunset..."></textarea>
+      <textarea id="imagePrompt" placeholder="An apple"></textarea>
       <div class="row">
         <label>Size
           <select id="imageSize">
@@ -72,17 +72,13 @@
 
     <section id="censor" class="panel">
       <h2>Slur censor</h2>
-      <p class="hint">Confirmed slur detections are replaced with exactly <strong>You're grounded.</strong> Ordinary swear words are not intentionally censored.</p>
+      <p class="hint">Confirmed slur detections are replaced with exactly <strong>You're grounded.</strong>
       <textarea id="censorInput" placeholder="Paste subtitles or a transcript here..."></textarea>
       <button id="censorButton" class="primary">Scan and censor</button>
       <textarea id="censorOutput" readonly placeholder="Censored text will appear here..."></textarea>
       <div id="detections" class="hint"></div>
     </section>
   </main>
-
-  <footer>
-    Keep <code>OPENAI_API_KEY</code> on the server. Never commit your real API key to GitHub.
-  </footer>
 
   <script src="/app.js"></script>
 </body>
