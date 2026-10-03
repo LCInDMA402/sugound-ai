@@ -15,9 +15,10 @@
 }
 @font-face {
   font-family: "Fredoka One";
-  src: url("font/fredoka-one/fredoka-one.woff2") format("woff2");
+  src: url("/font/fredoka-one/fredoka-one.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 body {
   margin: 0;
