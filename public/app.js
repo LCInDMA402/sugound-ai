@@ -47,7 +47,7 @@ $("chatForm").addEventListener("submit", async (event) => {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({message})
     });
-    addBubble(data.text);
+    addBubble(data.reply);
   } catch (error) {
     addBubble(`Error: ${error.message}`);
   }
